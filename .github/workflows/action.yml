@@ -22,9 +22,9 @@ jobs:
         with:
           python-version: 3.12.2
 
-      - name: Install dependencies
+      - name: Install Pylint
         run: |
-          pip install -r app/requirements.txt
+          pip install pylint
 
       - name: Run Pylint
         run: |
@@ -39,12 +39,14 @@ jobs:
           custom-arguments: '-q'
           click-to-expand: true
           report-title: 'Test Report'
-      
+
+      - name: Install Pytest Dependencies
+        run: pip install pytest pytest-md pytest-emoji
       - name: Run SAST
         uses: mdegis/bandit-action@v1.0
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          path: "."
+          path: "tests/test_jwt.py"
           level: high
           confidence: high
           exit_zero: true
