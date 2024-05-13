@@ -1,0 +1,7 @@
+fastapi==0.111.0
+loguru==0.7.2
+pydantic==2.7.1
+PyJWT==2.8.0
+pytest==8.2.0
+python-dotenv==1.0.1
+uvicorn==0.29.0
