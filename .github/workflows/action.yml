@@ -13,6 +13,9 @@ jobs:
     name: Security and Quality Checks
     runs-on: ubuntu-latest
 
+    env:
+      SECRET: ${{ secrets.SECRET }}
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
