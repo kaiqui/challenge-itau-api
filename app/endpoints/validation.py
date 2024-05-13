@@ -6,6 +6,6 @@ except ModuleNotFoundError:
 
 router = APIRouter()
 
-@router.post("/validate_jwt/{jwt_input}", response_model=bool)
-async def validate_jwt(jwt_input: str) -> bool:
-    return JWTClaims.validate_jwt(jwt_input)
+@router.post("/validate_jwt", response_model=bool)
+async def validate_jwt(input: str) -> bool:
+    return JWTClaims.validate_jwt(input)
