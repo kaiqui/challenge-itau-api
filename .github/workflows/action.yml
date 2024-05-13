@@ -22,9 +22,9 @@ jobs:
         with:
           python-version: 3.12.2
 
-      - name: Install Pylint
+      - name: Install Dependencies
         run: |
-          pip install pylint
+          pip install -r requirements.txt
 
       - name: Run Pylint
         run: |
@@ -40,8 +40,6 @@ jobs:
           click-to-expand: true
           report-title: 'Test Report'
 
-      - name: Install Pytest Dependencies
-        run: pip install pytest pytest-md pytest-emoji
       - name: Run SAST
         uses: mdegis/bandit-action@v1.0
         with:
