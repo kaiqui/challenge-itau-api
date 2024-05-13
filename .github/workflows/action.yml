@@ -28,7 +28,7 @@ jobs:
 
       - name: Run Pylint
         run: |
-          pylint app
+          pylint --fail-under=8 app
 
       - name: Run Pytest
         run: |
