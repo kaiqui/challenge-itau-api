@@ -30,9 +30,15 @@ jobs:
         run: |
           pylint --fail-under=8 app
 
-      - name: Run Pytest
-        run: |
-          Pytest tests/test_jwt.py
+      - name: Run pytest
+        uses: pavelzw/pytest-action@v2
+        with:
+          verbose: true
+          emoji: true
+          job-summary: true
+          custom-arguments: '-q'
+          click-to-expand: true
+          report-title: 'Test Report'
       
       - name: Run SAST
         uses: mdegis/bandit-action@v1.0
