@@ -8,7 +8,7 @@ except ModuleNotFoundError:
     from utils.environment import Environment
 
 class JWTClaims(BaseModel):
-    Name: str = Field(..., max_length=256, pattern="^[^\d]+$")
+    Name: str = Field(..., max_length=256, pattern=r"^[^\d]+$")
     Role: str = Field(..., pattern="^(Admin|Member|External)$")
     Seed: int
 
