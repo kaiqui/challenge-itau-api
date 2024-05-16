@@ -87,7 +87,7 @@ jobs:
         id: task-def
         uses: aws-actions/amazon-ecs-render-task-definition@c804dfbdd57f713b6c079302a4c01db7017a36fc
         with:
-          task-definition-file: .aws/task-deploy.json
+          task-definition: .aws/task-deploy.json
           container-name: $challenge-itau-api
           image: ${{ steps.build-image.outputs.image }}
 
