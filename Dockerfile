@@ -2,6 +2,10 @@ FROM python:3.12-slim
 
 WORKDIR /app
 
+ARG JWT_SECRET
+
+ENV JWT_SECRET=${JWT_SECRET}
+
 COPY app /app
 
 RUN pip install --no-cache-dir -r requirements.txt
