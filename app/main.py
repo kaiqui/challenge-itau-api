@@ -14,4 +14,4 @@ async def docs_redirect():
     return RedirectResponse(url='/docs')
 
 app.include_router(jwt_router)
-app.include_router(health)
+app.include_router(health, include_in_schema=False)
