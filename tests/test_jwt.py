@@ -30,7 +30,7 @@ def test_token_with_all_invalid_claims(test_api, generate_token, generate_invali
 
 def test_token_with_invalid_claims(test_api, generate_token, generate_valid_claims):
     claims = generate_valid_claims
-    claims['Itau'] = 'Challange'
+    claims['Itau'] = 'challenge'
     token = generate_token(claims)
     print(token)
     response = test_api(token)
