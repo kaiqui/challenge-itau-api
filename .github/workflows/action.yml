@@ -83,6 +83,14 @@ jobs:
           echo "image=$ECR_REGISTRY/challenge_itau:$IMAGE_TAG" >> $GITHUB_OUTPUT
           sed -i 's/"image": "\(.*\):larest"/"image": "\1:'"$IMAGE_TAG"'"/' .aws/task-deploy.json
 
+      - name: Fill in the new image ID in the Amazon ECS task definition
+        id: task-def
+        uses: aws-actions/amazon-ecs-render-task-definition@c804dfbdd57f713b6c079302a4c01db7017a36fc
+        with:
+          task-definition: .aws/task-deploy.json
+          container-name: challenge-itau-api
+          image: $ECR_REGISTRY/challenge_itau:$IMAGE_TAG
+
       - name: Deploy Amazon ECS task definition
         uses: aws-actions/amazon-ecs-deploy-task-definition@df9643053eda01f169e64a0e60233aacca83799a
         with:
