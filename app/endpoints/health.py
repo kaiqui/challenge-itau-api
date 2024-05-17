@@ -7,7 +7,7 @@ from fastapi import APIRouter
 
 router = APIRouter()
 
-@router.post("/health")
+@router.get("/health")
 async def health():
     """Health Check"""
     return {"ping": "pong"}
