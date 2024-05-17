@@ -6,6 +6,7 @@ try:
 except ModuleNotFoundError:
     from endpoints.validation import router as jwt_router
     from endpoints.health import router as health
+from prometheus_fastapi_instrumentator import Instrumentator
 
 app = FastAPI()
 
@@ -15,3 +16,4 @@ async def docs_redirect():
 
 app.include_router(jwt_router)
 app.include_router(health, include_in_schema=False)
+Instrumentator().instrument(app).expose(app)
