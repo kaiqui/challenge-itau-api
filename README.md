@@ -1,4 +1,4 @@
-# Challenge Itau API
+# Challenge JWT API
 
 Este repositório contém uma API construída com FastAPI que realiza a validação de tokens JWT. Utiliza o GitHub Actions para automação de CI/CD e faz deploy no Amazon ECS (Elastic Container Service).
 
